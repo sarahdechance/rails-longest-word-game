@@ -1,0 +1,20 @@
+<div class="container my-3">
+  <h1>Your letters are :</h1>
+  <ul class="list-group list-group-horizontal">
+    <% @letters.each do |letter| %>
+      <li class="list-group-item m-1 border"><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <div class="my-5">
+    <label for="result-input">Your guess is :
+      <form action="/score" method="POST" data-turbo="false">
+        <input type="text" name="result_input">
+        <input type="submit" value="Submit">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <%= hidden_field_tag :letters, @letters %>
+      </form>
+    </label>
+  </div>
+
+</div>
