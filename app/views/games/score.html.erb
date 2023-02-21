@@ -1,13 +1,15 @@
 <div class="container">
-<h1>Result</h1>
+  <h1>Result</h1>
 
-<% case @result[:message] %>
-<% when "not in the grid" %>
-  <p>Sorry but <strong><%=@attempt%></strong> can't be built out of <%= @grid.to_s %> </p>
-<% when "not an english word" %>
-  <p>Sorry but <strong><%=@attempt%></strong> does not seem to be an English word </p>
-<% else %>
-  <p>Congrats! Your guess <em><%= @attempt %></em> made you score <%= @result[:score] %> points!</p>
-<% end %>
+  <% case @result[:message] %>
+  <% when "not in the grid" %>
+    <p>Sorry but <strong><%=@attempt%></strong> can't be built out of <%= @grid.to_s %> </p>
+  <% when "not an english word" %>
+    <p>Sorry but <strong><%=@attempt%></strong> does not seem to be an English word </p>
+  <% else %>
+    <p>Congrats! Your guess <em><%= @attempt %></em> made you score <%= @result[:score] %> points!</p>
+  <% end %>
+
+  <%= link_to "Play again", new_path %>
 
 </div>

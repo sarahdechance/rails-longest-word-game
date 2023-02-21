@@ -14,6 +14,7 @@ class GamesController < ApplicationController
     @grid = params[:letters]
     @attempt = params[:result_input]
     @result = run_game(@attempt, @grid)
+    @total_added_score = added_score(@result)
   end
 
   def english?(attempt)
@@ -42,10 +43,12 @@ class GamesController < ApplicationController
       result[:score] = 1000 + (attempt.size)*10
       result[:message] = "Well Done!"
     end
-
     result
   end
 
+  # def added_score(result)
+  #   session[:total_score] += result
+  # end
 
   # def run_game(attempt, grid, start_time, end_time)
   #   result = { time: end_time - start_time }
@@ -62,5 +65,6 @@ class GamesController < ApplicationController
 
   #   result
   # end
+
 
 end
